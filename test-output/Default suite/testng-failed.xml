@@ -6,6 +6,9 @@
       <class name="com.svm.testscript.LoginTest">
         <methods>
           <include name="VerifyLogin"/>
+          <include name="SendEmail"/>
+          <include name="driverclose"/>
+          <include name="driverinitilization"/>
         </methods>
       </class> <!-- com.svm.testscript.LoginTest -->
     </classes>

@@ -18,8 +18,10 @@ public class ExtentReportManager extends utils implements ITestListener  {
 	public ExtentSparkReporter sparkreporter;
 	public ExtentReports extent;
 	public ExtentTest test;
-	
-	String repName; 
+	public static  int passCount=0;
+	public static int failCount =0;
+	public static String repName;
+	 
 	
 	public void onStart(ITestContext testContext) {
 		
@@ -44,6 +46,7 @@ public class ExtentReportManager extends utils implements ITestListener  {
 		test.assignCategory(result.getMethod().getGroups());
 		test.createNode(result.getName());
 		test.log(Status.PASS, "Test Passed");
+		passCount++;
 		
 	}
 	
@@ -60,8 +63,7 @@ public class ExtentReportManager extends utils implements ITestListener  {
 		}
 		test.log(Status.FAIL, "Test Failed");
 		test.log(Status.FAIL, result.getThrowable().getMessage());
-		
-		
+		 failCount++;
 	}
 	
 

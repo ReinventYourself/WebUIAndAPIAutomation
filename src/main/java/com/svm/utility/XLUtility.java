@@ -2,6 +2,7 @@ package com.svm.utility;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -26,7 +27,9 @@ public class XLUtility {
 	public XLUtility(String path)
 	{
 		this.path=path;
-	}
+	} 
+	
+	
 	
 	public int getRowCount(String sheetName) throws IOException
 	{
@@ -51,10 +54,20 @@ public class XLUtility {
 	    return cellcount;
 	}
 	
-	public String getCellData(String sheetName,int rownum,int colnum) throws IOException
+	public  String getCellData(String sheetName,int rownum,int colnum) 
 	{
-		fi=new FileInputStream(path);
-		workbook=new XSSFWorkbook(fi);
+		try {
+			fi=new FileInputStream(path);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			workbook=new XSSFWorkbook(fi);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		sheet=workbook.getSheet(sheetName);
 		row=sheet.getRow(rownum);
 		cell=row.getCell(colnum);
@@ -68,8 +81,18 @@ public class XLUtility {
 			{
 				data="";
 			}
-			workbook.close();
-			fi.close();
+			try {
+				workbook.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				fi.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return data;
 	}
 	public void setCellData(String sheetName,int rownum,int colnum,String data) throws IOException

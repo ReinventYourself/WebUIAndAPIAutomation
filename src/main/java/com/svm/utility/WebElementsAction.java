@@ -51,7 +51,7 @@ public class WebElementsAction extends utils {
 	
 	  }catch (Exception e){
 		  
-		  System.out.println("Error occured in locating element" + e.getMessage());
+		  System.out.println("Error occured in locating element" + e.getMessage()+ locator );
 		  
 	  } finally 
 	  {
@@ -154,6 +154,6 @@ protected void WaitForElementwithmultiplehit(By locator)
     }
 
     if (count == 4)
-        throw new ElementNotInteractableException("unable to locate element" + locator);
+        throw new ElementNotInteractableException("Uable to locate element" + locator);
 }
 }
