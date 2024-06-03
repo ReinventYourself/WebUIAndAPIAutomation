@@ -24,7 +24,14 @@ pipeline {
                                 choices: ['False', 'True'],
                                 description: 'Select True if you want to send report to the configured recipient',
                                 name: 'SendEmail'
-                            )]
+                            )
+                            choice(
+                                choices: ['Chrome', 'Firefox'],
+                                description: 'Please choose the Browser',
+                                name: 'Browser'
+                            )
+                            
+                            ]
                             )
                             ]
                             )
@@ -50,6 +57,7 @@ pipeline {
                     properties.load(new FileInputStream(propertiesFile))
                     properties.put('Env', params.Env)
                     properties.put('SendEmail', params.SendEmail)
+                    properties.put('Browser', params.Browser)
                     properties.store(new FileWriter(propertiesFile), null) 
                     //echo XmlFile
                     //echo "job name ${JOB_Name}"
