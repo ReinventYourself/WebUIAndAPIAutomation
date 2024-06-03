@@ -24,7 +24,7 @@ pipeline {
                                 choices: ['False', 'True'],
                                 description: 'Select True if you want to send report to the configured recipient',
                                 name: 'SendEmail'
-                            )
+                            ),
                             choice(
                                 choices: ['Chrome', 'Firefox'],
                                 description: 'Please choose the Browser',
