@@ -18,7 +18,7 @@ public class LoginTest extends BaseClass {
 	String Password = "qazwsxed123!";
 	String Invalidusername ="123";
 	String Invalidpassword = "1233";
-	String ExpectedMsg = "Invalid credentials - please try again.";
+	String ExpectedMsg = "Invalid credentials - please try again.1";
 			
 	
 	
